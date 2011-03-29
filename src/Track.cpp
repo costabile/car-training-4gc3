@@ -44,8 +44,8 @@ Track::Track(Point2D pos, float w, float shift, bool r)
 		// Initialize static training track
 		//static track created in *absolute* coordinates
 		const int ran[numTrackRows] = {
-			 1, 2, 3, 5, 7, 9,13,11, 9, 8,
-			 5, 3, 2, 1, 3, 5, 7, 8,11,13,
+			-15,-14,-13,-12,-11,-10,-8,-6,-4,-1,
+			 2, 3, 2, 1, 3, 5, 7, 8,11,13,
 			11, 8, 7, 5, 3, 1, 0, 0, 0, 0,
 			 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
 			 8,13,18,23,18,13, 8, 3,-2,-7,
@@ -53,7 +53,7 @@ Track::Track(Point2D pos, float w, float shift, bool r)
 			 1, 1, 1, 1, 1,-2,-4,-6,-9,-5,
 			-3, 2, 7,12,17,22,26,22,18,13,
 			 9, 4, 6, 9,13,14,14,11,12, 8,
-			 7, 6, 5, 4, 3, 2, 1, 1, 1, 1
+			 7, 6, 4, 2, 0, -3,-6,-9,-12,-15
 		};
 		float presetShifts[numTrackRows];
 
