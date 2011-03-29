@@ -172,7 +172,7 @@ void windowSetup (void)
 	glEnable(GL_LIGHTING);					// Enable Lighting
 	glEnable(GL_LIGHT0);					// Set a Light
 	glHint (GL_PERSPECTIVE_CORRECTION_HINT, // Specify Implementation Specific Hints
-		GL_NICEST);		
+		GL_FASTEST);
 	
 	return;
 }
@@ -196,7 +196,7 @@ void display(void)
 	glTranslatef(0.0f, carStart.y, drawDepth);
 	glColor3f(0.0f, 1.0f, 0.0f);
 	track->Draw();
-	DrawScore();
+	//DrawScore();
 	
 	if (gameStarted && youLost == false)
 	{

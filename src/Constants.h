@@ -19,7 +19,7 @@ const float drawDepth = -20.0f;
 // Track Parameters / Difficulty
 const int updateTime = 80;
 const float trackWidth = 7.5f;
-const int numTrackRows = 30;
+const int numTrackRows = 100;
 const float shiftAmount = 0.2f;
 const float maxShift = 7.5f;
 
