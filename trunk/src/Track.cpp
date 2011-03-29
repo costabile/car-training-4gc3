@@ -42,34 +42,35 @@ Track::Track(Point2D pos, float w, float shift, bool r)
 	else
 	{
 		// Initialize static training track
-		const float dir[30] = {1, 1, 1,-1,-1,
-							   1, 1, 1,-1,-1,
-							   1,-1,-1,-1,-1,
-							  -1, 1,-1, 1,-1,
-							   1, 1, 1, 1,-1,
-							  -1, 1, 1,-1,-1};
-		const int ran[30] = {2,4,1,5,5,
-							 2,3,5,2,2,
-							 2,4,1,5,2,
-							 2,5,1,5,4,
-							 5,5,5,5,3,
-							 2,4,5,5,4};
-		float presetShifts[30];
+		//static track created in *absolute* coordinates
+		const int ran[numTrackRows] = {
+			 1, 2, 3, 5, 7, 9,13,11, 9, 8,
+			 5, 3, 2, 1, 3, 5, 7, 8,11,13,
+			11, 8, 7, 5, 3, 1, 0, 0, 0, 0,
+			 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
+			 8,13,18,23,18,13, 8, 3,-2,-7,
+			-12,-17,-13,-9,-4, 1, 1, 1, 1, 1,
+			 1, 1, 1, 1, 1,-2,-4,-6,-9,-5,
+			-3, 2, 7,12,17,22,26,22,18,13,
+			 9, 4, 6, 9,13,14,14,11,12, 8,
+			 7, 6, 5, 4, 3, 2, 1, 1, 1, 1
+		};
+		float presetShifts[numTrackRows];
 
-		for (int i = 0; i < 30; i++)
-			presetShifts[i] = dir[i]*ran[i]*shiftAmount;
+		for (int i = 0; i < numTrackRows; i++)
+			presetShifts[i] = ran[i]*shiftAmount;
 
-		for (int i = 0; i < trackLength; i++)
+		for (int i = 0; i < numTrackRows; i++)
 		{
 			if (i == 0)
 			{
-				leftWallPiece = new Square(position + Point2D(-width/2 + presetShifts[i], 0.0f), wallSize, wallSize);
-				rightWallPiece = new Square(position + Point2D(width/2 + presetShifts[i], 0.0f), wallSize, wallSize);
+				leftWallPiece = new Square(Point2D(presetShifts[i], -trackWidth), wallSize, wallSize);
+				rightWallPiece = new Square(Point2D(presetShifts[i], -trackWidth), wallSize, wallSize);
 			}
 			else
 			{	
-				leftWallPiece = new Square(walls.at(2*i-2)->GetPosition() + Point2D(presetShifts[i], wallSize), wallSize, wallSize);
-				rightWallPiece = new Square(walls.at(2*i-1)->GetPosition() + Point2D(presetShifts[i], wallSize), wallSize, wallSize);
+				leftWallPiece = new Square(Point2D(presetShifts[i], wallSize + walls.at(2*i-2)->GetPosition().y), wallSize, wallSize);
+				rightWallPiece = new Square(Point2D(presetShifts[i] + trackWidth, wallSize + walls.at(2*i-1)->GetPosition().y), wallSize, wallSize);
 			}
 			walls.push_back(leftWallPiece);
 			walls.push_back(rightWallPiece);
