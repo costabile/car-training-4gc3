@@ -4,3 +4,4 @@ Issues
 -static track : very short ** made it longer!
 -messy coding -- e.g. direction, length matrices for static track
 -hid score
+-increased to 30 hidden units
