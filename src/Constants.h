@@ -27,7 +27,7 @@ const float maxShift = 7.5f;
 const int snapshotInterval = 50;
 const int numInputs = 14;
 const int numHiddenLayers = 1;
-const int numHiddenNeurons = 20;
+const int numHiddenNeurons = 25;
 const int numOutputs = 1;
 
 const int startIndex = 8;
