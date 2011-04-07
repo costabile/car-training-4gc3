@@ -2,7 +2,7 @@ clear
 clc
 
 % Neural network parameters
-numNeurons = 20;
+numNeurons = 25;
 numInputs = 14;
 numOutputs = 1;
 
