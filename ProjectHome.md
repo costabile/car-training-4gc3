@@ -1,0 +1,1 @@
+Involves training a simple car-on-track simulation to avoid hitting walls using a neural network.
